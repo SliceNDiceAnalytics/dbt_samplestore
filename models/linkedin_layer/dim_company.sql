@@ -9,10 +9,11 @@ with dim_company as (
         * 
     from 
         {{ ref('stg_customers') }}
- 
 where
  {% if is_incremental() %}
-format_date('%Y-%M-%d  %H:%M:%S',created_at) > (SELECT  ifnull(max(format_date('%Y-%M-%d  %H:%M:%S',created_at)),'2024-01-01 00:00:00') FROM  `sndqa-datastewards.sliverlayer.dim_company`) and
+    format_date('%Y-%M-%d  %H:%M:%S',created_at) > 
+    (SELECT  ifnull(max(format_date('%Y-%M-%d  %H:%M:%S',created_at)),'2024-01-01 00:00:00') 
+        FROM  `sndqa-datastewards.sliverlayer.dim_company`) and
 {% endif %}
  company.id is not null
 order by 1,2
