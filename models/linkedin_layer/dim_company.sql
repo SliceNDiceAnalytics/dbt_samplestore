@@ -6,9 +6,9 @@
  
 with dim_company as (
     select 
-        * 
+        *
     from 
-        {{ ref('stg_customers') }}
+        {{ ref('stg_company') }}
 where
  {% if is_incremental() %}
     format_date('%Y-%M-%d  %H:%M:%S',created_at) > 
