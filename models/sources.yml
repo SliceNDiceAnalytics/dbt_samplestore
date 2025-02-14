@@ -1,0 +1,6 @@
+version: 2
+sources:
+  - name: bronzelayer
+    tables:
+      - name: linkedin_job_listings
+    

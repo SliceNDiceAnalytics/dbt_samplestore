@@ -1,0 +1,28 @@
+version: 2
+
+models:
+    - name: dim_company
+      description: "A dimension table where we are stroing customers relative details"
+      columns:
+          - name: company_key
+            description: "This is surogate key for this table"
+            data_type: string
+            tests:
+                - unique
+                - not_null
+          - name: company_id
+            description: "The business key for this table"
+            data_type: integers
+            tests:
+                - not_null
+          - name: company_name
+            description: "Customer Name "
+            data_type: string
+            tests:
+                - not_null
+          - name: company_logo
+            description: "This columns is capurting company logo url which is being shown on LinkedIn"
+            data_type: string
+          - name: company_url
+            description: "This is company page url of linkedIn"
+            data_type: string
