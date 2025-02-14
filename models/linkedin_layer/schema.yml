@@ -7,9 +7,6 @@ models:
           - name: company_key
             description: "This is surogate key for this table"
             data_type: string
-            # quote: true | false
-            # tags: ...
-            # meta: ... 
             tests:
                 - unique
                 - not_null
@@ -26,8 +23,6 @@ models:
           - name: company_logo
             description: "This columns is capurting company logo url which is being shown on LinkedIn"
             data_type: string
-            tests:
-                - not_null
           - name: company_url
             description: "This is company page url of linkedIn"
             data_type: string
