@@ -26,3 +26,35 @@ models:
           - name: company_url
             description: "This is company page url of linkedIn"
             data_type: string
+            
+    - name: dim_location
+      description: "A dimension table where we are storing location details"
+      columns:
+          - name: location_key
+            description: "This is surogate key for this table"
+            data_type: string
+            tests:
+                - unique
+                - not_null
+          - name: location
+            description: "The Maincolumns for dim location"
+            data_type: string
+            tests:
+                - not_null
+          - name: city
+            description: "City specific details which we are spliting from location column"
+            data_type: string
+            tests:
+                - not_null
+          - name: state
+            description: "State specific details which we are spliting from location column"
+            data_type: string
+          - name: country
+            description: "Country specific details which we are spliting from location column"
+            data_type: string
+          - name: job_location
+            description: "Display column for actual job location"
+            data_type: string
+          - name: Job_Location_Type
+            description: "Display column for job location type"
+            data_type: string
