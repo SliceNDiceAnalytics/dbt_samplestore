@@ -104,7 +104,7 @@ models:
                 - unique
                 - not_null
           - name: ship_mode
-            description: "The business key for this table."
+            description: "This column capture the shipment mode actual values."
             data_type: string
 
     - name: dim_return
