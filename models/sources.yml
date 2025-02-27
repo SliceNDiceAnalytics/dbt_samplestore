@@ -3,4 +3,6 @@ sources:
   - name: bronzelayer
     tables:
       - name: linkedin_job_listings
+      - name: order_raw
+      - name: return_raw
     

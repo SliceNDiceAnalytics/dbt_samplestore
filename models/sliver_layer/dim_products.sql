@@ -2,12 +2,12 @@
 
 with dim_product as (
 SELECT distinct
-  `Product ID` as product_id,
-  Category as category,
-  `Sub-Category`as sub_category,
-  `Product Name` as product_name
+  product_id,
+  category,
+  sub_category,
+  product_name
 FROM
-  `sndqa-datastewards`.`bronzelayer`.`order_raw`
+  {{ ref('stg_order') }}
 order by 2,3
 )
 
