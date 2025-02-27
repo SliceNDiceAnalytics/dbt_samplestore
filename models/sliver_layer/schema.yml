@@ -87,9 +87,6 @@ models:
           - name: category
             description: "This is product primary category."
             data_type: string
-            tests:
-              - accepted_values:
-                  values: ['East', 'South', 'Central', 'West']
           - name: sub_category
             description: "This is product secondary category."
             data_type: string
