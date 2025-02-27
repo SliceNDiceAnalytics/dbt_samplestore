@@ -4,13 +4,15 @@ WITH
   dim_geo AS (
   SELECT
     DISTINCT
-    country AS country,
-    region AS region,
-    state AS state,
-    city AS city,
-    `Postal Code` AS postal_code
+    country,
+    region,
+    state,
+    city,
+    postal_code
   FROM
-    `sndqa-datastewards`.`bronzelayer`.`order_raw`)
+    {{ ref('stg_order') }}
+    )
+
 SELECT
   GENERATE_UUID() AS geo_key,
   *
