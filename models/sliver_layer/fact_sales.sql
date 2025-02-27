@@ -6,7 +6,6 @@ SELECT
    dim_customers.customer_id,
    dim_geo.postal_code,
    dim_shipmode.shipmode_key,
---    dim_date.date_key,
    source.order_date,
    source.ship_date,
    source.sales,

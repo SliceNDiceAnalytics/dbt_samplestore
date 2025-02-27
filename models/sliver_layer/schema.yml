@@ -1,0 +1,135 @@
+version: 2
+
+models:
+    - name: dim_customers
+      description: "A dimension table where we are stroing customers relative details"
+      columns:
+          - name: customer_key
+            description: "This is surogate key for this table"
+            data_type: string
+            tests:
+                - unique
+                - not_null
+          - name: customer_id
+            description: "The business key for this table"
+            data_type: string
+            tests:
+                - not_null
+          - name: customer_name
+            description: "Customer Name "
+            data_type: string
+          - name: segment
+            description: "This column is capurting customer segment"
+            data_type: string
+          - name: country
+            description: "This is customers country from where they are ordering"
+            data_type: string
+          - name: region
+            description: "This is customers region from where they are ordering"
+            data_type: string
+            tests:
+              - accepted_values:
+                  values: ['East', 'South', 'Central', 'West']
+          - name: state
+            description: "This is customers state from where they are ordering"
+            data_type: string
+          - name: city
+            description: "This is customers city from where they are ordering"
+            data_type: string
+          - name: postal_code
+            description: "This is customers postal code from where they are ordering"
+            data_type: integers
+            
+    - name: dim_geo
+      description: "A dimension table where we are storing location details"
+      columns:
+          - name: geo_key
+            description: "This is surogate key for this table"
+            data_type: string
+            tests:
+                - unique
+                - not_null
+          - name: country
+            description: "This is customers Country from where they are ordering"
+            data_type: string
+            tests:
+                - not_null
+          - name: region
+            description: "This is customers region from where they are ordering"
+            data_type: string
+            tests:
+              - accepted_values:
+                  values: ['East', 'South', 'Central', 'West']
+          - name: state
+            description: "This is customers state from where they are ordering"
+            data_type: string
+          - name: city
+            description: "This is customers city from where they are ordering"
+            data_type: string
+          - name: postal_code
+            description: "This is customers postal code from where they are ordering"
+            data_type: integers
+
+    - name: dim_products
+      description: "A dimension table where we are storing products details"
+      columns:
+          - name: product_key
+            description: "This is surogate key for this table"
+            data_type: string
+            tests:
+                - unique
+                - not_null
+          - name: product_id
+            description: "The business key for this table."
+            data_type: string
+            tests:
+                - not_null
+          - name: category
+            description: "This is product primary category."
+            data_type: string
+            tests:
+              - accepted_values:
+                  values: ['East', 'South', 'Central', 'West']
+          - name: sub_category
+            description: "This is product secondary category."
+            data_type: string
+          - name: product_name
+            description: "This is product name and its lowest grain of this table."
+            data_type: string
+          
+    - name: dim_shipmode
+      description: "A dimension table where we are caputring delivery shipment mode"
+      columns:
+          - name: shipmode_key
+            description: "This is surogate key for this table"
+            data_type: string
+            tests:
+                - unique
+                - not_null
+          - name: ship_mode
+            description: "The business key for this table."
+            data_type: string
+
+    - name: dim_return
+      description: "A dimension table is capturing the details for return orders"
+      columns:
+          - name: return_key
+            description: "This is surogate key for this table"
+            data_type: string
+            tests:
+                - unique
+                - not_null
+          - name: order_id
+            description: "The business key for this table."
+            data_type: string
+            tests:
+                - not_null 
+          - name: retruned
+            description: "The boolean column to check if order is returned."
+            data_type: string      
+
+
+          #   tests:
+          # - relationships:
+          #     to: ref('customers')
+          #     field: id

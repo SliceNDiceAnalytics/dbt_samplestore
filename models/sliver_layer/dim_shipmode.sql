@@ -4,7 +4,7 @@
  
 with dim_shipmode as (
     select distinct
-        *
+        ship_mode
     from 
         {{ ref('stg_order') }}
 where
