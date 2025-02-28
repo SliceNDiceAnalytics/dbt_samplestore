@@ -12,7 +12,7 @@ SELECT
    source.quantity,
    source.discount,
    source.profit,
-   return.returned,
+   ifnull(return.returned, false) as return_status,
    current_timestamp() as created_at
   
 FROM  {{ ref('stg_order') }} as source 
