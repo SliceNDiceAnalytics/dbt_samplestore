@@ -1,4 +1,8 @@
 
+{{ config(
+    materialized='table'
+) }}
+
 with fact_sales as (
 SELECT 
    dim_products.product_id,
@@ -8,6 +12,14 @@ SELECT
    dim_shipmode.shipmode_key,
    source.order_date,
    source.ship_date,
+   dim_products.category,
+   dim_products.sub_category,
+   dim_products.product_name,
+   dim_customers.segment,
+   dim_customers.region,
+   dim_customers.country,
+   dim_customers.state,
+   dim_customers.city,
    source.sales,
    source.quantity,
    source.discount,
@@ -30,5 +42,6 @@ FROM  {{ ref('stg_order') }} as source
     on source.order_id=  return.order_id
 )
   select 
+  GENERATE_UUID() AS order_key,
     *
    from fact_sales
